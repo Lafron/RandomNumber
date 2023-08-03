@@ -2,18 +2,10 @@
 
 function rndBot(rndN) {
     return function comparNum(clientNum) {
-        rndN == clientNum
-            ? alert("Поздравляю, Вы угадали!!!")
-            :   (
-                rndN > clientNum
-                    ?   (
-                        alert("Загаданное число больше"),
-                        getCheckNum()
-                        )
-                    :   (
-                        alert("Загаданное число меньше"),
-                        getCheckNum()
-                        )
+        rndN == clientNum ? alert("Поздравляю, Вы угадали!!!")
+            :   (rndN > clientNum ?
+                    (alert("Загаданное число больше"), getCheckNum())
+                    :   (alert("Загаданное число меньше"), getCheckNum())
                 );
     };
 
@@ -22,7 +14,7 @@ function rndBot(rndN) {
 const comp = rndBot(Math.round(100 * Math.random(), 2));
 
 function getCheckNum() {
-   const answ = prompt("Enter a number");
+   const answ = prompt("Enter a number").trim();
 
     if (answ === null) {
         alert("Игра окончена.");
